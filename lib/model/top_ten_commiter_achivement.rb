@@ -8,20 +8,13 @@ class TopTenCommiterAchivement < Achivement
     
     ActiveRecord::Base.transaction do
       
-      top_ten_commiters = User.top_ten_commiters
-      old_top_ten_achivements = Achivement.find_all_by_type('TopTenCommiterAchivement')
-      
-      # Destroy old top ten achivments if the user is no longer in the top ten
-      old_top_ten_achivements.each do |top_ten|
-        top_ten.destroy unless top_ten_commiters.include? top_ten.user
-      end
+      # Destroy old top ten commiters achivments
+      Achivement.delete_all(:type => 'TopTenCommiterAchivement')
       
       #Save new top ten commiters
-      top_ten_commiters.each do |commiter|
-        unless old_top_ten_achivements.include? commiter
-          commiter.achivements << TopTenCommiterAchivement.new
-          commiter.save
-        end
+      User.top_ten_commiters.each do |commiter|
+        commiter.achivements << TopTenCommiterAchivement.new
+        commiter.save
       end
       
     end

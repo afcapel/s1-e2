@@ -4,10 +4,6 @@ class FirstCommitAchivement < Achivement
     user.commits.size > 0
   end
   
-  def self.dynamic?
-    false
-  end
-  
   def message
     "Did her first commit!"
   end
