@@ -1,0 +1,152 @@
+D, [2010-09-11T18:59:36.147091 #1902] DEBUG -- :   [1m[36mSQL (21.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-09-11T18:59:36.147457 #1902] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+D, [2010-09-11T18:59:36.150796 #1902] DEBUG -- :   [1m[36mSQL (2.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+D, [2010-09-11T18:59:36.151094 #1902] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+D, [2010-09-11T18:59:36.154508 #1902] DEBUG -- :   [1m[36mSQL (3.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+D, [2010-09-11T18:59:36.154838 #1902] DEBUG -- :   [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-11T19:00:15.088943 #1910] DEBUG -- :   [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-09-11T19:21:08.463264 #2133] DEBUG -- :   [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-09-11T20:09:29.861892 #2374] DEBUG -- :   [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-09-11T20:11:55.236221 #2378] DEBUG -- :   [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-09-11T20:14:31.327489 #2381] DEBUG -- :   [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-09-11T20:14:31.328013 #2381] DEBUG -- :   [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-11T20:17:00.182293 #2399] DEBUG -- :   [1m[36mSQL (0.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-09-11T20:17:00.182844 #2399] DEBUG -- :   [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-11T20:17:42.809807 #2401] DEBUG -- :   [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-09-11T20:17:43.154074 #2401] DEBUG -- :   [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-11T20:17:43.156343 #2401] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+I, [2010-09-11T20:17:43.156467 #2401]  INFO -- : Migrating to CreateModel (1)
+D, [2010-09-11T20:17:43.156716 #2401] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+D, [2010-09-11T20:17:43.162366 #2401] DEBUG -- :   [1m[36mSQL (0.9ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+D, [2010-09-11T20:17:43.164210 #2401] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  CREATE TABLE "commits" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+D, [2010-09-11T20:17:43.165624 #2401] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mCREATE TABLE "achivements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+D, [2010-09-11T20:17:43.173087 #2401] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('1')
+D, [2010-09-11T20:17:43.177463 #2401] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-09-11T20:17:43.179478 #2401] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+I, [2010-09-11T20:17:43.179571 #2401]  INFO -- : Migrating to CreateModel (1)
+D, [2010-09-11T20:21:48.358355 #2422] DEBUG -- :   [1m[36mSQL (0.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-09-11T20:21:48.361087 #2422] DEBUG -- :   [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-11T20:21:48.362744 #2422] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+I, [2010-09-11T20:21:48.362847 #2422]  INFO -- : Migrating to CreateModel (1)
+D, [2010-09-11T20:21:48.363173 #2422] DEBUG -- :   [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-11T20:21:48.364929 #2422] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+I, [2010-09-11T20:21:48.365000 #2422]  INFO -- : Migrating to CreateModel (1)
+D, [2010-09-11T20:29:58.330604 #2440] DEBUG -- :   [1m[36mSQL (0.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-09-11T20:29:58.333343 #2440] DEBUG -- :   [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-11T20:29:58.335006 #2440] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+I, [2010-09-11T20:29:58.335104 #2440]  INFO -- : Migrating to CreateModel (1)
+D, [2010-09-11T20:29:58.335429 #2440] DEBUG -- :   [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-11T20:29:58.337185 #2440] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+D, [2010-09-11T20:29:58.337490 #2440] DEBUG -- :   [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-11T20:29:58.339120 #2440] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+I, [2010-09-11T20:29:58.339197 #2440]  INFO -- : Migrating to CreateModel (1)
+D, [2010-09-11T20:29:58.339376 #2440] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+D, [2010-09-11T20:29:58.342277 #2440] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mDROP TABLE "user"[0m
+D, [2010-09-11T20:29:58.342343 #2440] DEBUG -- : SQLite3::SQLException: no such table: user: DROP TABLE "user"
+D, [2010-09-11T20:30:12.545570 #2442] DEBUG -- :   [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-09-11T20:30:12.548318 #2442] DEBUG -- :   [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-11T20:30:12.550046 #2442] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+I, [2010-09-11T20:30:12.550147 #2442]  INFO -- : Migrating to CreateModel (1)
+D, [2010-09-11T20:30:12.550483 #2442] DEBUG -- :   [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-11T20:30:12.552331 #2442] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+D, [2010-09-11T20:30:12.552637 #2442] DEBUG -- :   [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-11T20:30:12.554202 #2442] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+I, [2010-09-11T20:30:12.554273 #2442]  INFO -- : Migrating to CreateModel (1)
+D, [2010-09-11T20:30:12.554450 #2442] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+D, [2010-09-11T20:30:12.557883 #2442] DEBUG -- :   [1m[36mSQL (1.0ms)[0m  [1mDROP TABLE "users"[0m
+D, [2010-09-11T20:30:12.558673 #2442] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  DROP TABLE "commits"
+D, [2010-09-11T20:30:12.559260 #2442] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mDROP TABLE "achivements"[0m
+D, [2010-09-11T20:30:12.564739 #2442] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '1'
+D, [2010-09-11T20:30:19.269905 #2444] DEBUG -- :   [1m[36mSQL (0.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-09-11T20:30:19.272587 #2444] DEBUG -- :   [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-11T20:30:19.274197 #2444] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+I, [2010-09-11T20:30:19.274283 #2444]  INFO -- : Migrating to CreateModel (1)
+D, [2010-09-11T20:30:19.274463 #2444] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+D, [2010-09-11T20:30:19.278416 #2444] DEBUG -- :   [1m[36mSQL (0.7ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+D, [2010-09-11T20:30:19.279714 #2444] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  CREATE TABLE "commits" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+D, [2010-09-11T20:30:19.281103 #2444] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mCREATE TABLE "achivements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar(255), "type" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+D, [2010-09-11T20:30:19.286754 #2444] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('1')
+D, [2010-09-11T20:30:19.290350 #2444] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-09-11T20:30:19.292224 #2444] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+I, [2010-09-11T20:30:19.292305 #2444]  INFO -- : Migrating to CreateModel (1)
