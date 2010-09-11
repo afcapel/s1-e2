@@ -150,3 +150,59 @@ D, [2010-09-11T20:30:19.290350 #2444] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1
 [0m
 D, [2010-09-11T20:30:19.292224 #2444] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
 I, [2010-09-11T20:30:19.292305 #2444]  INFO -- : Migrating to CreateModel (1)
+D, [2010-09-11T22:15:16.090235 #2773] DEBUG -- :   [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-09-11T22:15:16.090593 #2773] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+D, [2010-09-11T22:15:16.093257 #2773] DEBUG -- :   [1m[36mSQL (2.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+D, [2010-09-11T22:15:16.093519 #2773] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+D, [2010-09-11T22:15:16.095643 #2773] DEBUG -- :   [1m[36mSQL (1.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+D, [2010-09-11T22:15:16.095950 #2773] DEBUG -- :   [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-11T22:15:16.098595 #2773] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-09-11T22:15:16.100228 #2773] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+I, [2010-09-11T22:15:16.100318 #2773]  INFO -- : Migrating to CreateModel (1)
+D, [2010-09-11T22:15:16.104850 #2773] DEBUG -- :   [1m[36mSQL (0.7ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "commits_count" integer, "created_at" datetime, "updated_at" datetime) [0m
+D, [2010-09-11T22:15:16.106332 #2773] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  CREATE TABLE "commits" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+D, [2010-09-11T22:15:16.107937 #2773] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mCREATE TABLE "achivements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar(255), "type" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+D, [2010-09-11T22:15:16.113770 #2773] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('1')
+D, [2010-09-11T22:15:16.117228 #2773] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-09-11T22:15:16.119148 #2773] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+I, [2010-09-11T22:15:16.119237 #2773]  INFO -- : Migrating to CreateModel (1)
+D, [2010-09-11T22:26:28.539643 #2807] DEBUG -- :   [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-09-11T22:26:28.540007 #2807] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+D, [2010-09-11T22:26:28.544247 #2807] DEBUG -- :   [1m[36mSQL (3.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+D, [2010-09-11T22:26:28.544516 #2807] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+D, [2010-09-11T22:26:28.547460 #2807] DEBUG -- :   [1m[36mSQL (2.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+D, [2010-09-11T22:26:28.547870 #2807] DEBUG -- :   [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+
+D, [2010-09-11T22:26:28.550688 #2807] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-09-11T22:26:28.552504 #2807] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+I, [2010-09-11T22:26:28.552608 #2807]  INFO -- : Migrating to CreateModel (1)
+D, [2010-09-11T22:26:28.570664 #2807] DEBUG -- :   [1m[36mSQL (0.7ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "commits_count" integer DEFAULT 0, "created_at" datetime, "updated_at" datetime) [0m
+D, [2010-09-11T22:26:28.572252 #2807] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  CREATE TABLE "commits" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+D, [2010-09-11T22:26:28.573819 #2807] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mCREATE TABLE "achivements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar(255), "type" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+D, [2010-09-11T22:26:28.579369 #2807] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('1')
+D, [2010-09-11T22:26:28.582588 #2807] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+D, [2010-09-11T22:26:28.584519 #2807] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+I, [2010-09-11T22:26:28.584606 #2807]  INFO -- : Migrating to CreateModel (1)

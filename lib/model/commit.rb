@@ -1,3 +1,3 @@
 class Commit < ActiveRecord::Base
-  belongs_to :user, :touch => true
+  belongs_to :user, :counter_cache => true
 end
