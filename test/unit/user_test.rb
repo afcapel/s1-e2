@@ -2,25 +2,14 @@ require 'test_helper'
 
 class UserTest < ApplicationTest
   test "a user can have commits" do
-    user = User.new(:username => 'paco')
-    
-    1.upto(10) do |i|
-      user.commits << Commit.new(:message => "Commit #{i}")
-    end
-    
-    user.save!
-    
+    user = create_user(:num_commits => 10)
     assert user.commits.size == 10
   end
   
   test "search top ten commiters" do
     
     1.upto(20) do |i|
-       user = User.new(:username => "user#{i}")
-       1.upto(i) do |j|
-         user.commits << Commit.new(:message => "Commit #{j}")
-       end
-      user.save!
+      create_user(:num_commits => i)
     end
     
     assert User.top_ten_commiters.size == 10

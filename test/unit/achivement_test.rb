@@ -8,13 +8,7 @@ class AchivmentTest < ApplicationTest
   
   test "a user earns an achivement after her first commit" do
     
-    user = User.create(:username => 'pepe')
-    
-    assert !user.already_achived?(FirstCommitAchivement)
-    
-    user.commits << Commit.new(:message => "My first commit!")
-    
-    user.save!
+    user = create_user(:num_commits => 1)
     
     assert user.commits.size > 0
     assert user.achivements.size > 0, "User achivments must be greater than 0 after first commit"
@@ -23,13 +17,7 @@ class AchivmentTest < ApplicationTest
   
   test "a user earns an achivement after her fifty commit" do
     
-    user = User.create(:username => 'juana')
-    
-    1.upto(50) do |i|
-      user.commits << Commit.new(:message => "commit #{i}")
-    end
-    
-    user.save!
+    user = create_user(:num_commits => 50)
     
     assert user.commits.size == 50, "User should have 50 commits"
     assert user.already_achived?(FiftyCommitsAchivement), "User should have earned the 50 commits achivement"
@@ -38,11 +26,7 @@ class AchivmentTest < ApplicationTest
   test "top ten commiters earn an achivement" do
     
     1.upto(20) do |i|
-       user = User.new(:username => "user#{i}")
-       1.upto(i) do |j|
-         user.commits << Commit.new(:message => "Commit #{j}")
-       end
-      user.save!
+      create_user(:num_commits => i)
     end
     
     Achivement.calculate_dynamic_achivements!
@@ -55,11 +39,7 @@ class AchivmentTest < ApplicationTest
   test "a user can loose her top ten commiter achivement" do
     
     1.upto(20) do |i|
-       user = User.new(:username => "user#{i}")
-       1.upto(i) do |j|
-         user.commits << Commit.new(:message => "Commit #{j}")
-       end
-      user.save!
+      create_user(:num_commits => 5)
     end
     
     Achivement.calculate_dynamic_achivements!
@@ -68,13 +48,7 @@ class AchivmentTest < ApplicationTest
     
     assert last_top_ten_commiter.already_achived?(TopTenCommiterAchivement), "Last top ten commiter should earn an achivement"
     
-    new_top_ten_committer = User.new(:username => "new_top_ten_commiter")
-    
-    1.upto(30) do |k|
-      new_top_ten_committer.commits << Commit.new(:message => "Commit #{k}")
-    end
-    
-    new_top_ten_committer.save!
+    new_top_ten_committer = create_user(:num_commits => 10)
     
     Achivement.calculate_dynamic_achivements!
     
