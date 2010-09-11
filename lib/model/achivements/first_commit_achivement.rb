@@ -1,4 +1,4 @@
-class FirstCommitAchivement < Achivement
+class FirstCommitAchivement < StaticAchivement
   
   def self.should_be_achived_by?(user)
     user.commits.size > 0

@@ -29,7 +29,7 @@ class AchivmentTest < ApplicationTest
       create_user(:num_commits => i)
     end
     
-    Achivement.calculate_dynamic_achivements!
+    DynamicAchivement.calculate_dynamic_achivements!
     
     User.top_ten_commiters.each do |commiter|
       assert commiter.already_achived?(TopTenCommiterAchivement), "Top ten commiter should earn an achivement"
@@ -38,11 +38,11 @@ class AchivmentTest < ApplicationTest
   
   test "a user can loose her top ten commiter achivement" do
     
-    1.upto(20) do |i|
+    1.upto(10) do |i|
       create_user(:num_commits => 5)
     end
     
-    Achivement.calculate_dynamic_achivements!
+    DynamicAchivement.calculate_dynamic_achivements!
     
     last_top_ten_commiter = User.top_ten_commiters.to_a.last
     
@@ -50,11 +50,26 @@ class AchivmentTest < ApplicationTest
     
     new_top_ten_committer = create_user(:num_commits => 10)
     
-    Achivement.calculate_dynamic_achivements!
+    DynamicAchivement.calculate_dynamic_achivements!
     
     last_top_ten_commiter.reload
     
     assert ! last_top_ten_commiter.already_achived?(TopTenCommiterAchivement), "Last top ten commiter should have lost her achivement"
+    
+  end
+  
+  test "a user can earn a most forked project achivement" do
+    
+    project = create_project
+    
+    1.upto(5) do
+      other_user = create_user
+      other_user.fork_project(project)
+    end
+    
+    DynamicAchivement.calculate_dynamic_achivements!
+    
+    project.user.already_achived?(MostForkedProjectAchivement)
     
   end
 end

@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :commits
+  has_many :projects
   has_many :achivements
 
   before_save :earn_achivements
@@ -20,11 +21,21 @@ class User < ActiveRecord::Base
     User.order('commits_count DESC').limit(10)
   end
   
+  def fork_project(project)
+    forked = Project.new(project.attributes)
+    forked.id = nil
+    forked.user_id = self.id
+    forked.forked_from = project
+    forked.save!
+    project.reload
+    forked
+  end
+  
   private
 
   def earn_achivements
-    Achivement.descendants.each do |achiv|
-      if ! achiv.dynamic? && should_have_new_achivement?(achiv)
+    StaticAchivement.descendants.each do |achiv|
+      if should_have_new_achivement?(achiv)
         self.achivements << achiv.new
       end
     end

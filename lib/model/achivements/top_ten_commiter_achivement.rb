@@ -1,8 +1,4 @@
-class TopTenCommiterAchivement < Achivement
-  
-  def self.dynamic?
-    true
-  end
+class TopTenCommiterAchivement < DynamicAchivement
   
   def self.grant_to_users
     

@@ -19,11 +19,20 @@ class CreateModel < ActiveRecord::Migration
       t.timestamps
     end
     
+    create_table :projects do |t|
+      t.string :name
+      t.integer :user_id
+      t.integer :forked_from_id
+      t.integer :forks_count, :default => 0
+      t.timestamps
+    end
+    
   end
 
   def self.down
     drop_table :users
     drop_table :commits
     drop_table :achivements
+    drop_table :projects
   end
 end

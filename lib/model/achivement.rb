@@ -1,14 +1,12 @@
 class Achivement < ActiveRecord::Base
   belongs_to :user
   
-  def self.dynamic?
-    false
+  def message
+    raise Exception.new "You need to implement message method to create an Achivement"
   end
   
-  def self.calculate_dynamic_achivements!
-    Achivement.descendants.each do |achiv|
-      achiv.grant_to_users if achiv.dynamic?
-    end
+  def self.dynamic?
+    false
   end
         
 end
