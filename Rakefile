@@ -4,7 +4,7 @@ require 'active_record'
 require 'yaml'
 require 'logger'
 
-task :default => [:test]
+task :default => ['db:drop', 'db:migrate', :test]
 
 desc "Run unit tests"
 Rake::TestTask.new do |test|
@@ -17,7 +17,13 @@ end
 namespace :db do
 desc "Migrate the database"
 task :migrate => :environment do
+  
   ActiveRecord::Migrator.migrate('db/migrate', ENV["VERSION"] ? ENV["VERSION"].to_i : nil )
+end
+
+desc "Drop the database"
+task :drop do
+  `rm db/test.sqlite3`
 end
 
 task :rollback => :environment do

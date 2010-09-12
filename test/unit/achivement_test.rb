@@ -4,6 +4,8 @@ class AchivmentTest < ApplicationTest
   
   test "achivemet keep track of its descendants" do
     assert Achivement.descendants.include? FirstCommitAchivement
+    assert StaticAchivement.descendants.include? FirstCommitAchivement
+    assert ! DynamicAchivement.descendants.include?(FirstCommitAchivement)
   end
   
   test "a user earns an achivement after her first commit" do
