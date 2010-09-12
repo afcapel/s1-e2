@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :projects
   has_many :achivements
 
-  before_save :earn_achivements
+  before_save :earn_static_achivements
 
   def already_achived?(achivement)
     achivements.map{ |achiv| achiv.class }.include?(achivement)
@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   
   private
 
-  def earn_achivements
+  def earn_static_achivements
     StaticAchivement.descendants.each do |achiv|
       if should_have_new_achivement?(achiv)
         self.achivements << achiv.new
