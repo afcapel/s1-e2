@@ -5,12 +5,12 @@ class User < ActiveRecord::Base
 
   before_save :earn_static_achivements
 
-  def already_achived?(achivement)
+  def achived?(achivement)
     achivements.map{ |achiv| achiv.class }.include?(achivement)
   end
   
   def should_have_new_achivement?(achivement)
-    ! already_achived?(achivement) && achivement.should_be_achived_by?(self)
+    ! achived?(achivement) && achivement.should_be_achived_by?(self)
   end
   
   def self.users_with_achivement(achivement)
@@ -22,10 +22,7 @@ class User < ActiveRecord::Base
   end
   
   def fork_project(project)
-    forked = Project.new(project.attributes)
-    forked.id = nil
-    forked.user_id = self.id
-    forked.forked_from = project
+    forked = Project.new project.attributes.merge(:id => nil, :user_id => self.id, :forked_from_id => project.id)
     forked.save!
     project.reload
     forked

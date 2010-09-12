@@ -6,7 +6,7 @@ class MostForkedProjectAchivement < DynamicAchivement
       
       most_forked_project = Project.most_forked
       
-      unless most_forked_project.nil? || most_forked_project.user.already_achived?(MostForkedProjectAchivement)
+      unless most_forked_project.nil? || most_forked_project.user.achived?(MostForkedProjectAchivement)
         Achivement.delete_all(:type => "MostForkedProjectAchivement")
         most_forked_project.user.achivements << MostForkedProjectAchivement.new
         most_forked_project.user.save!

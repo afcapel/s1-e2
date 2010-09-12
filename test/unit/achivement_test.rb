@@ -14,7 +14,7 @@ class AchivmentTest < ApplicationTest
     
     assert user.commits.size > 0
     assert user.achivements.size > 0, "User achivments must be greater than 0 after first commit"
-    assert user.already_achived? FirstCommitAchivement
+    assert user.achived? FirstCommitAchivement
   end
   
   test "a user earns an achivement after her fifty commit" do
@@ -22,7 +22,7 @@ class AchivmentTest < ApplicationTest
     user = create_user(:num_commits => 50)
     
     assert user.commits.size == 50, "User should have 50 commits"
-    assert user.already_achived?(FiftyCommitsAchivement), "User should have earned the 50 commits achivement"
+    assert user.achived?(FiftyCommitsAchivement), "User should have earned the 50 commits achivement"
   end
   
   test "top ten commiters earn an achivement" do
@@ -34,7 +34,7 @@ class AchivmentTest < ApplicationTest
     DynamicAchivement.calculate_dynamic_achivements!
     
     User.top_ten_commiters.each do |commiter|
-      assert commiter.already_achived?(TopTenCommiterAchivement), "Top ten commiter should earn an achivement"
+      assert commiter.achived?(TopTenCommiterAchivement), "Top ten commiter should earn an achivement"
     end
   end
   
@@ -48,7 +48,7 @@ class AchivmentTest < ApplicationTest
     
     last_top_ten_commiter = User.top_ten_commiters.to_a.last
     
-    assert last_top_ten_commiter.already_achived?(TopTenCommiterAchivement), "Last top ten commiter should earn an achivement"
+    assert last_top_ten_commiter.achived?(TopTenCommiterAchivement), "Last top ten commiter should earn an achivement"
     
     new_top_ten_committer = create_user(:num_commits => 10)
     
@@ -56,7 +56,7 @@ class AchivmentTest < ApplicationTest
     
     last_top_ten_commiter.reload
     
-    assert ! last_top_ten_commiter.already_achived?(TopTenCommiterAchivement), "Last top ten commiter should have lost her achivement"
+    assert ! last_top_ten_commiter.achived?(TopTenCommiterAchivement), "Last top ten commiter should have lost her achivement"
     
   end
   
@@ -71,7 +71,7 @@ class AchivmentTest < ApplicationTest
     
     DynamicAchivement.calculate_dynamic_achivements!
     
-    project.user.already_achived?(MostForkedProjectAchivement)
+    project.user.achived?(MostForkedProjectAchivement)
     
   end
 end

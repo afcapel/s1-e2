@@ -5,7 +5,7 @@ class ProjectTest < ApplicationTest
     project = create_project
     other_user = create_user
     
-    project.forks_count == 0
+    assert project.forks_count == 0
     
     fork = other_user.fork_project(project)
     assert fork.user_id == other_user.id
